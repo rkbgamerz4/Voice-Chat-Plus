@@ -4,7 +4,7 @@ Thank you for helping build Voice Chat+. Please keep changes small, verifiable a
 
 ## Ground rules
 
-1. **No RKB branding.** This project is independent. Do not add RKB names, logos, package names, or references to other RKB projects in code, UI, docs, or commit messages.
+1. **No third-party branding.** This project is independent. Do not add names, logos, package names, or references to any other project (including any launcher or client project you may work on) in code, UI, docs, or commit messages.
 2. **No secrets.** Never commit tokens, credentials, keystores, signing passwords, or `local.properties`. Use GitHub Secrets for CI credentials.
 3. **Clean room.** Do not copy, translate, or adapt source from Simple Voice Chat or any all-rights-reserved project. Do not bring code from a project you contributed to unless you have the right to relicense it. Read `docs/RESEARCH.md` first.
 4. **No fake implementations.** Do not add empty methods that pretend to work, hardcoded "success" results, or placeholder network responses. If something is not implemented, say so in docs and keep it out of the build path.

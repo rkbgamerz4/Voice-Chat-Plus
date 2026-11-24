@@ -78,4 +78,4 @@ Voice Chat+ source code is released under the MIT License — see `LICENSE`. Thi
 
 ## Contributing
 
-See `CONTRIBUTING.md`. In particular: no RKB branding, no secrets in commits, no compatibility claims without tests.
+See `CONTRIBUTING.md`. In particular: no unrelated branding, no secrets in commits, no compatibility claims without tests.
