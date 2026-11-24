@@ -9,9 +9,9 @@ An independent, Android-first proximity voice chat project for Minecraft.
 
 ---
 
-> **Status: early foundation (v0.1.0).** This repository currently contains research, architecture, a multi-module Gradle build, DSP/protocol primitives with unit tests, and a minimal Android diagnostics screen. Voice transport and Minecraft integration are **not implemented**.
+> **Status: Phase 3 audio foundation (v0.1.0).** The Android app now has real `AudioRecord` capture, `AudioTrack` playback, runtime microphone permission handling, audio focus management, device enumeration, and a working Microphone Test screen with a level meter driven by actual captured PCM. Voice transport, Opus encoding and Minecraft integration are **not implemented**.
 >
-> **Compatibility notice:** Voice Chat+ is **not verified** to be compatible with Simple Voice Chat or any Minecraft voice chat server. No interoperability claim is made. See `docs/RESEARCH.md`.
+> **Compatibility notice:** Voice Chat+ is **not verified** to be compatible with Simple Voice Chat or any Minecraft voice chat server. No interoperability claim is made. See `docs/RESEARCH.md` and `docs/OPUS_INVESTIGATION.md`.
 
 ---
 
@@ -62,8 +62,8 @@ On a machine without an Android SDK, use the GitHub Actions **Android Debug Buil
 |---|---|---|
 | 1 | Research reference project, license and Android audio constraints | Done |
 | 2 | Repository, docs, project structure, Gradle, initial README | Done |
-| 3 | Android audio foundation: capture, playback, Opus, mic test, tests | In progress (DSP primitives + tests only) |
-| 4 | Network engine and verified protocol | Not started |
+| 3 | Android audio foundation: capture, playback, permissions, focus, mic test, tests | Implemented; Opus deferred (no verifiable artifact — see `docs/OPUS_INVESTIGATION.md`) |
+| 4 | Network engine and verified protocol | Next |
 | 5 | Minecraft integration and proximity | Not started (blocked on Phase 3/4) |
 | 6 | Full UI: settings, devices, players, diagnostics, about | Not started |
 | 7 | CI/CD: builds, tests, static analysis, release artifacts | Workflows in place |

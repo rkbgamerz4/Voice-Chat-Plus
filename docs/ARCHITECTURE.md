@@ -21,14 +21,14 @@
                              (pure Kotlin/JVM, no Android SDK)
 ```
 
-| Module | Depends on | Responsibility | Status (milestone 1) |
+| Module | Depends on | Responsibility | Status (Phase 3) |
 |---|---|---|---|
 | `common` | — | Shared constants, version/capability value types | Implemented + unit tested |
-| `audio-engine` | `common` | Platform-independent DSP: PCM formats, ring buffers, voice activity detection; Opus behind a future interface | Foundation implemented + unit tested; Opus pending dependency verification |
+| `audio-engine` | `common` | PCM formats, ring buffers, VAD, frame assembly, level metering, session lifecycle | Implemented + unit tested; Opus pending dependency verification |
 | `voice-protocol` | `common` | Internal wire types, byte buffer/codec utilities, encryption and handshake state machines | Byte buffer implemented + unit tested; remainder planned |
 | `network-engine` | `common`, `voice-protocol` | UDP socket lifecycle, connection state machine, packet dispatch, error handling | State machine implemented + unit tested; transport planned |
 | `minecraft-integration` | `common`, `voice-protocol` | Proximity model, player voice state, PTT bindings, loader adapters | Planned — not started by design |
-| `android-app` | all of the above | UI screens, runtime permissions, audio focus, foreground service, AudioRecord/AudioTrack adapters | Build scaffold + diagnostics home screen |
+| `android-app` | all of the above | UI screens, runtime permissions, audio focus, device discovery, AudioRecord/AudioTrack adapters | Capture/playback/test screen implemented; foreground service planned |
 
 ### Dependency rules
 
@@ -54,7 +54,7 @@ Microphone (AudioRecord)
    -> AudioTrack (USAGE_VOICE_COMMUNICATION)[android-app adapter]
 ```
 
-At milestone 1 only the highlighted DSP primitives and the connection state machine exist. The flow above is a design target, not an implemented pipeline.
+As of Phase 3, capture, audio effects, frame assembly, VAD, metering and playback are real and implemented. The codec/encryption/network stages are a design target, not an implemented pipeline. `MicrophoneCapture.onFrame` is the boundary where a verified codec will connect.
 
 ## 4. Threading model (target)
 
