@@ -26,7 +26,7 @@ class MainActivity : Activity() {
 
         val content = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            setBackgroundColor(BACKGROUND)
+            setBackgroundColor(Color.parseColor(BACKGROUND))
             val pagePadding = dp(24)
             setPadding(pagePadding, pagePadding, pagePadding, pagePadding)
         }
@@ -84,9 +84,9 @@ class MainActivity : Activity() {
 
     private fun card(title: String, body: String): LinearLayout {
         val padding = dp(16)
-        return LinearLayout(context).apply {
+        return LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            setBackgroundColor(SECONDARY_PANEL)
+            setBackgroundColor(Color.parseColor(SECONDARY_PANEL))
             setPadding(padding, padding, padding, padding)
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
