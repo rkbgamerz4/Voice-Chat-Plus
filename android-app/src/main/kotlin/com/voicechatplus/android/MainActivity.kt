@@ -1,10 +1,12 @@
 package com.voicechatplus.android
 
 import android.app.Activity
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
@@ -43,11 +45,26 @@ class MainActivity : Activity() {
         content.addView(spacer(24))
 
         content.addView(
+            Button(this).apply {
+                text = "Open Microphone Test"
+                setTextColor(Color.WHITE)
+                setBackgroundColor(Color.parseColor("#00A8FF"))
+                layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                )
+                setOnClickListener { startActivity(Intent(this@MainActivity, MicrophoneTestActivity::class.java)) }
+            },
+        )
+        content.addView(spacer(12))
+
+        content.addView(
             card(
                 title = "Build status",
-                body = "Version ${VoiceChatPlusInfo.VERSION} (foundation build)\n" +
+                body = "Version ${VoiceChatPlusInfo.VERSION} (Phase 3 audio foundation)\n" +
+                    "Microphone capture: implemented (AudioRecord)\n" +
+                    "Playback: implemented (AudioTrack)\n" +
                     "Voice transport: not implemented\n" +
-                    "Audio capture / playback: not implemented\n" +
                     "Minecraft integration: not implemented\n" +
                     "Third-party compatibility: not verified",
             ),
@@ -58,16 +75,16 @@ class MainActivity : Activity() {
                 title = "Modules",
                 body = "common, audio-engine, voice-protocol, network-engine: unit tested\n" +
                     "minecraft-integration: planned (Phase 5)\n" +
-                    "android-app: build scaffold",
+                    "android-app: microphone test + diagnostics",
             ),
         )
 
         content.addView(
             card(
                 title = "Next milestone",
-                body = "Android audio foundation: AudioRecord / AudioTrack adapters, " +
-                    "runtime microphone permission, audio focus, Opus integration " +
-                    "and microphone test screen.",
+                body = "Network engine and verified protocol: connection management, " +
+                    "packet handling, authentication and error handling. " +
+                    "Opus codec integration follows dependency verification.",
             ),
         )
 
